@@ -40,12 +40,12 @@ const FEATURED_BADGE_IDS = [
 
           <!-- Hero Content -->
           <div class="text-center lg:text-left flex-1">
-            <p class="text-sm font-mono text-text-secondary mb-2 anim-fade-up anim-delay-2">Hello, I'm</p>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary leading-tight mb-4 anim-fade-up anim-delay-3">
+            <p class="text-sm font-mono text-text-secondary mb-2 ">Hello, I'm<span class="hello-cursor">_</span></p>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary leading-tight mb-4 ">
               Isrofil Amar
             </h1>
-            <p class="text-lg md:text-xl text-text-secondary font-semibold mb-4 anim-fade-up anim-delay-4">
-              Associate Cyber Threat <span class="whitespace-nowrap">Detection Engineer</span>
+            <p class="text-sm md:text-base lg:text-xl text-text-secondary font-semibold mb-4 ">
+              <span id="typewriter-container">Associate<span id="typewriter-dynamic" class="text-accent"></span><span id="typewriter-cursor" class="typewriter-cursor"></span></span>
             </p>
             <p class="text-base md:text-lg text-text-secondary max-w-2xl mx-auto lg:mx-0 leading-relaxed text-pretty mb-8 anim-fade-up anim-delay-5">
               Every log tells a story.<br />
@@ -177,3 +177,85 @@ const FEATURED_BADGE_IDS = [
 
   <Footer />
 </BaseLayout>
+
+
+
+<script>
+  const dynamicElement = document.getElementById('typewriter-dynamic');
+  const helloCursor = document.querySelector('.hello-cursor');
+
+  if (helloCursor) {
+    let visible = true;
+    setInterval(() => {
+      visible = !visible;
+      helloCursor.style.opacity = visible ? '1' : '0';
+    }, 530);
+  }
+
+  if (dynamicElement) {
+    const roles = [
+      ' Security Analyst',
+      ' Cyber Threat Detection Engineer'
+    ];
+
+    let currentRoleIndex = 0;
+    let currentText = '';
+    let charIndex = 0;
+    let isDeleting = false;
+
+    // Timing (milliseconds) - Optimized speeds
+    const TYPE_SPEED = 50;            // Faster typing
+    const DELETE_SPEED_ANALYST = 30;  // Fast delete for short text
+    const DELETE_SPEED_ENGINEER = 35; // Medium-fast delete for long text
+    const PAUSE_AFTER_ENGINEER = 3000; // Long pause after Cyber Threat Detection Engineer
+    const PAUSE_BEFORE_NEXT = 300;    // Brief pause before next role
+    const START_DELAY = 500;          // Quick start
+
+    function animate() {
+      const currentRole = roles[currentRoleIndex];
+
+      if (!isDeleting) {
+        // Typing phase
+        if (charIndex < currentRole.length) {
+          currentText += currentRole[charIndex];
+          dynamicElement.textContent = currentText;
+          charIndex++;
+          setTimeout(animate, TYPE_SPEED);
+        } else {
+          // Finished typing
+          isDeleting = true;
+          // Long pause only after "Cyber Threat Detection Engineer"
+          const pause = currentRoleIndex === 1 ? PAUSE_AFTER_ENGINEER : 800;
+          setTimeout(animate, pause);
+        }
+      } else {
+        // Deleting phase - use appropriate speed
+        const deleteSpeed = currentRoleIndex === 0 ? DELETE_SPEED_ANALYST : DELETE_SPEED_ENGINEER;
+        
+        if (charIndex > 0) {
+          currentText = currentText.slice(0, -1);
+          dynamicElement.textContent = currentText;
+          charIndex--;
+          setTimeout(animate, deleteSpeed);
+        } else {
+          // Finished deleting - move to next role
+          isDeleting = false;
+          currentRoleIndex = (currentRoleIndex + 1) % roles.length;
+          setTimeout(animate, PAUSE_BEFORE_NEXT);
+        }
+      }
+    }
+
+    // Start animation
+    setTimeout(animate, START_DELAY);
+  }
+
+  // Blinking cursor for "Hello, I'm"
+  if (helloCursor) {
+    let visible = true;
+    setInterval(() => {
+      visible = !visible;
+      helloCursor.style.opacity = visible ? '1' : '0';
+    }, 530); // Blink every 530ms
+  }
+</script>

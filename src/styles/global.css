@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "tailwind-plugin-typed";
 @import "@fontsource/poppins/300.css";
 @import "@fontsource/poppins/400.css";
 @import "@fontsource/poppins/600.css";
@@ -50,6 +51,42 @@ header {
 /* Mobile menu smooth transitions */
 #mobile-menu {
   transition: opacity 0.2s ease-in-out;
+}
+
+/* Typewriter cursor - terminal block style (full character width) */
+.typewriter-cursor {
+  display: inline-block;
+  width: 0.5em;  /* Narrower to prevent wrapping */
+  height: 1.1em;
+  background-color: var(--color-accent);
+  color: transparent;
+  animation: blink 1s step-end infinite;
+  margin-left: 0.05em;
+  vertical-align: middle;
+  margin-top: -0.05em;
+}
+
+.hello-cursor {
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  margin-left: 0.1em;
+}
+
+html[data-theme="dark"] .typewriter-cursor {
+  color: #22D3EE; /* cyan-400 for better contrast in dark mode */
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typewriter-cursor,
+  .hello-cursor {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 /* Theme toggle icons */
