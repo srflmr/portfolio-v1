@@ -42,6 +42,16 @@ html.no-transition * {
   transition: none !important;
 }
 
+/* Optimize header rendering - prevent lag during navigation */
+header {
+  will-change: transform;
+}
+
+/* Mobile menu smooth transitions */
+#mobile-menu {
+  transition: opacity 0.2s ease-in-out;
+}
+
 /* Theme toggle icons */
 html[data-theme="dark"] .theme-sun { display: none; }
 html:not([data-theme="dark"]) .theme-moon { display: none; }

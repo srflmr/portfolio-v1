@@ -84,4 +84,25 @@ const navLinks = [
   </div>
 </header>
 
-<script is:inline>document.getElementById('menu-btn').addEventListener('click',function(){var m=document.getElementById('mobile-menu');var isHidden=m.classList.toggle('hidden');this.setAttribute('aria-expanded',String(!isHidden))})</script>
+<script>
+  // Mobile menu toggle with proper initialization
+  function initMobileMenu() {
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (!menuBtn || !mobileMenu) return;
+
+    // Ensure menu is closed on page load
+    mobileMenu.classList.add('hidden');
+    menuBtn.setAttribute('aria-expanded', 'false');
+
+    // Add click handler
+    menuBtn.addEventListener('click', function() {
+      const isHidden = mobileMenu.classList.toggle('hidden');
+      this.setAttribute('aria-expanded', String(!isHidden));
+    });
+  }
+
+  // Initialize on page load
+  initMobileMenu();
+</script>
