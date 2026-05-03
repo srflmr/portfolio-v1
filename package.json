@@ -1,0 +1,17 @@
+{
+  "name": "portfolio-isrofilamar",
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "devDependencies": {
+    "astro": "5.18.1",
+    "@tailwindcss/vite": "4.2.4",
+    "tailwindcss": "4.2.4",
+    "@fontsource/poppins": "5.2.7",
+    "@fontsource/jetbrains-mono": "5.2.8"
+  }
+}

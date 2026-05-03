@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const FEATURED_BADGE_IDS = [
+  '3ce3bbbd-66d0-4ece-801d-7d279617d14d',
+  'fe1cbbb6-c452-4885-9874-6b9a6db79056',
+  'eac07a29-6681-4715-bbe2-e55076b03996',
+  'acae8294-ff72-40ed-8b3a-a6c527ff3629',
+  'fb28d501-fd25-46a3-9eed-924356d95b16',
+];
+---
+
+<BaseLayout
+  title="Isrofil Amar | Portfolio"
+  description="Portfolio Isrofil Amar - Associate Cyber Threat Detection Engineer"
+>
+  <Header currentPage="home" />
+
+  <main id="content">
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 md:pt-32 md:pb-16 lg:pt-32 lg:pb-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="flex flex-col lg:flex-row items-center lg:justify-between gap-12 lg:gap-16">
+          <!-- Profile Image -->
+          <div class="flex-shrink-0 anim-fade-up anim-delay-1">
+            <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden bg-surface border-4 border-border">
+              <img
+                src="/images/profile.jpg"
+                alt="Isrofil Amar"
+                class="w-full h-full object-cover"
+                width="256"
+                height="256"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </div>
+          </div>
+
+          <!-- Hero Content -->
+          <div class="text-center lg:text-left flex-1">
+            <p class="text-sm font-mono text-text-secondary mb-2 anim-fade-up anim-delay-2">Hello, I'm</p>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary leading-tight mb-4 anim-fade-up anim-delay-3">
+              Isrofil Amar
+            </h1>
+            <p class="text-lg md:text-xl text-text-secondary font-semibold mb-4 anim-fade-up anim-delay-4">
+              Associate Cyber Threat <span class="whitespace-nowrap">Detection Engineer</span>
+            </p>
+            <p class="text-base md:text-lg text-text-secondary max-w-2xl mx-auto lg:mx-0 leading-relaxed text-pretty mb-8 anim-fade-up anim-delay-5">
+              Every log tells a story.<br />
+              I read between the lines — <br class="lg:hidden" />detection engineering isn't just my job;<br />
+              it's how I protect what matters.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start anim-fade-up anim-delay-6">
+              <a href="/about" class="inline-flex items-center justify-center px-6 py-3 bg-accent hover:bg-accent-hover text-white font-semibold rounded-lg transition-colors focus-ring">
+                Learn More
+              </a>
+              <a href="/contact" class="inline-flex items-center justify-center px-6 py-3 border-2 border-border hover:border-accent text-text-primary hover:text-accent font-semibold rounded-lg transition-colors focus-ring">
+                Get in Touch
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Preview Section -->
+    <section class="py-16 md:py-24 bg-surface">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-8 md:mb-12">
+          <h2 class="text-2xl md:text-3xl font-semibold text-text-primary mb-4">About Me</h2>
+          <p class="text-text-secondary max-w-2xl mx-auto leading-relaxed text-pretty">
+            Security analyst turned detection engineer — reading between the lines to make the unseen visible.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-6 md:gap-8">
+          <div class="bg-bg p-6 md:p-8 rounded-xl border border-border">
+            <div class="w-12 h-12 bg-accent-light rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-text-primary mb-2">Security</h3>
+            <p class="text-base text-text-secondary leading-relaxed text-pretty">
+              Specialized in threat detection, SIEM operations, and security monitoring.
+            </p>
+          </div>
+
+          <div class="bg-bg p-6 md:p-8 rounded-xl border border-border">
+            <div class="w-12 h-12 bg-accent-light rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-text-primary mb-2">Development</h3>
+            <p class="text-base text-text-secondary leading-relaxed text-pretty">
+              Building tools and automation scripts for security operations.
+            </p>
+          </div>
+
+          <div class="bg-bg p-6 md:p-8 rounded-xl border border-border">
+            <div class="w-12 h-12 bg-accent-light rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-text-primary mb-2">Learning</h3>
+            <p class="text-base text-text-secondary leading-relaxed text-pretty">
+              Continuously expanding knowledge through certifications and hands-on experience.
+            </p>
+          </div>
+        </div>
+
+        <div class="text-center mt-10">
+          <a href="/about" class="inline-flex items-center text-accent hover:text-accent-hover font-semibold transition-colors focus-ring rounded-sm">
+            View Full Profile
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Preview Section -->
+    <section class="py-16 md:py-24">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-8 md:mb-12">
+          <h2 class="text-2xl md:text-3xl font-semibold text-text-primary mb-4">Certifications</h2>
+          <p class="text-text-secondary max-w-2xl mx-auto leading-relaxed text-pretty">
+            Professional certifications demonstrating expertise in cybersecurity and cloud technologies.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+          {FEATURED_BADGE_IDS.map((id, i) => (
+            <div class={`aspect-square bg-surface rounded-xl border border-border flex items-center justify-center p-2 sm:p-3${i >= 4 ? ' hidden lg:flex' : i >= 2 ? ' hidden sm:flex' : ''}`}>
+              <img
+                src={`/images/badges/badge-${i + 1}.png`}
+                alt={`Certification badge ${i + 1}`}
+                class="w-full h-full object-contain"
+                width="200"
+                height="200"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+          ))}
+        </div>
+
+        <div class="text-center mt-10">
+          <a href="/about#certifications" class="inline-flex items-center text-accent hover:text-accent-hover font-semibold transition-colors focus-ring rounded-sm">
+            View All Certifications
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 md:py-24 bg-surface">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <h2 class="text-2xl md:text-3xl font-semibold text-text-primary mb-4">Let's Connect</h2>
+        <p class="text-text-secondary max-w-xl mx-auto mb-8 leading-relaxed text-pretty">
+          Whether you're hiring, collaborating, or just want to chat about cybersecurity — reach out.
+        </p>
+        <a href="/contact" class="inline-flex items-center justify-center px-8 py-3 bg-accent hover:bg-accent-hover text-white font-semibold rounded-lg transition-colors focus-ring">
+          Contact Me
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

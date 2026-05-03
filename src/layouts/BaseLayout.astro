@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+}
+
+const { title, description, ogImage = '/images/profile.jpg' } = Astro.props;
+
+const siteUrl = 'https://isrofilamar.pages.dev';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const ogImageUrl = new URL(ogImage, siteUrl).href;
+
+const faviconSvg = `data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2306B6D4'/><text x='16' y='23' font-family='Arial' font-size='15' font-weight='bold' fill='white' text-anchor='middle'>IA</text></svg>`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Isrofil Amar" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:site_name" content="Isrofil Amar" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <title>{title}</title>
+    <link rel="icon" href={faviconSvg} />
+    <script is:inline>(function(){var h=document.documentElement;var t=localStorage.getItem('theme');if(!t)t=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';h.setAttribute('data-theme',t);document.addEventListener('click',function(e){if(e.target.closest('[data-theme-toggle]')){var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.classList.add('no-transition');h.setAttribute('data-theme',n);localStorage.setItem('theme',n);requestAnimationFrame(function(){h.classList.remove('no-transition')})}})})() </script>
+  </head>
+  <body class="bg-bg text-text-primary antialiased overflow-x-hidden">
+    <a
+      href="#content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 bg-bg border border-border px-3 py-2 rounded-md z-[100] text-sm font-medium text-text-primary focus-ring"
+    >
+      Skip to content
+    </a>
+    <slot />
+  </body>
+</html>

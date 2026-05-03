@@ -1,0 +1,78 @@
+@import "tailwindcss";
+@import "@fontsource/poppins/300.css";
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
+@import "@fontsource/jetbrains-mono/400.css";
+
+@theme {
+  --font-sans: 'Poppins', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-bg: #FFFFFF;
+  --color-surface: #F8FAFC;
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #64748B;
+  --color-accent: #06B6D4;
+  --color-accent-hover: #0891B2;
+  --color-accent-light: #ECFEFF;
+  --color-border: #E2E8F0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+html[data-theme="dark"] {
+  --color-bg: #0F172A;
+  --color-surface: #1E293B;
+  --color-text-primary: #F1F5F9;
+  --color-text-secondary: #94A3B8;
+  --color-border: #334155;
+  --color-accent-light: #164E63;
+}
+
+/* Disable all transitions during theme switch — prevents glitch on 30+ transition-colors elements */
+html.no-transition * {
+  transition: none !important;
+}
+
+/* Theme toggle icons */
+html[data-theme="dark"] .theme-sun { display: none; }
+html:not([data-theme="dark"]) .theme-moon { display: none; }
+
+/* Hamburger menu icons — toggled via aria-expanded attribute (no extra JS) */
+#menu-btn[aria-expanded="true"] .menu-icon-open { display: none; }
+#menu-btn[aria-expanded="false"] .menu-icon-close { display: none; }
+
+/* Hero entrance animation — staggered fade + slide up */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.anim-fade-up {
+  animation: fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.anim-delay-1 { animation-delay: 0ms; }
+.anim-delay-2 { animation-delay: 80ms; }
+.anim-delay-3 { animation-delay: 160ms; }
+.anim-delay-4 { animation-delay: 240ms; }
+.anim-delay-5 { animation-delay: 320ms; }
+.anim-delay-6 { animation-delay: 400ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade-up { animation: none; }
+}
+
+@layer components {
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg;
+  }
+}
