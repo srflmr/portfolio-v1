@@ -8,10 +8,11 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "astro": "5.18.1",
-    "@tailwindcss/vite": "4.2.4",
-    "tailwindcss": "4.2.4",
+    "@astrojs/sitemap": "^3.7.2",
+    "@fontsource/jetbrains-mono": "5.2.8",
     "@fontsource/poppins": "5.2.7",
-    "@fontsource/jetbrains-mono": "5.2.8"
+    "@tailwindcss/vite": "^4.2.4",
+    "astro": "^5.18.1",
+    "tailwindcss": "4.2.4"
   }
 }

@@ -9,7 +9,7 @@ interface Props {
 
 const { title, description, ogImage = '/images/profile.jpg' } = Astro.props;
 
-const siteUrl = 'https://isrofilamar.pages.dev';
+const siteUrl = 'https://isrofilamar.site';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 const ogImageUrl = new URL(ogImage, siteUrl).href;
 

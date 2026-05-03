@@ -52,3 +52,11 @@ coverage/
 # Claude files
 CLAUDE.md
 DEPLOYMENT.md
+.agent/
+.claude/
+
+# Navigator context markers
+.context-markers/
+
+# Navigator temporary files
+.agent/.nav-temp/

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://isrofilamar.pages.dev/sitemap.xml
+Sitemap: https://isrofilamar.site/sitemap.xml
